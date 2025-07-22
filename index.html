@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,243 +10,208 @@
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(-45deg, #e0f2f7, #c8e6c9, #bbdefb, #f8bbd0);
-            background-size: 400% 400%;
-            animation: gradientBG 15s ease infinite;
-            min-height: 100vh; /* Ensure background covers full height */
         }
 
-        @keyframes gradientBG {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+        /* For the timeline line in the experience section */
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -30px;
+            top: 4px;
+            height: 100%;
+            width: 2px;
+            background-color: #334155; /* slate-700 */
+        }
+        .timeline-item:first-child::before {
+             top: 4px;
+        }
+        .timeline-item:last-child::before {
+            height: 4px;
         }
 
-        .section-box {
-            background-color: #ffffff;
-            border-radius: 12px; /* More rounded corners */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer shadow */
-            padding: 2.5rem; /* Increased padding */
-            margin-bottom: 2rem;
-            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        /* Custom scrollbar for a more polished look */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-        .section-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        ::-webkit-scrollbar-track {
+            background: #0f172a; /* slate-900 */
         }
-        .header-text {
-            color: #2c3e50; /* Darker text for headings */
+        ::-webkit-scrollbar-thumb {
+            background: #334155; /* slate-700 */
+            border-radius: 10px;
         }
-        .sub-header-text {
-            color: #34495e;
-        }
-        .body-text {
-            color: #555;
-        }
-        .link-style {
-            color: #3498db; /* Blue for links */
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .link-style:hover {
-            text-decoration: underline;
-        }
-        .tag {
-            background-color: #e0f2f7; /* Light blue tag background */
-            color: #2980b9; /* Darker blue tag text */
-            padding: 0.4rem 0.8rem;
-            border-radius: 8px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            margin-right: 0.5rem;
-            margin-bottom: 0.5rem;
-            display: inline-block;
-        }
-        .experience-item {
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid #ebf0f5; /* Light separator */
-        }
-        .experience-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        /* Title specific styles */
-        .animated-title {
-            font-size: 4.5rem; /* Slightly larger */
-            font-weight: 800; /* Extra bold */
-            background: linear-gradient(45deg, #3498db, #8e44ad, #2ecc71); /* Gradient colors */
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-fill-color: transparent;
-            animation: gradientText 5s ease infinite;
-            display: inline-block; /* Required for gradient to work */
-            line-height: 1; /* Adjust line height for better appearance */
-        }
-
-        @keyframes gradientText {
-            0% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-            100% {
-                background-position: 0% 50%;
-            }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569; /* slate-600 */
         }
     </style>
 </head>
-<body class="antialiased">
-    <div class="container mx-auto px-4 py-10 max-w-4xl">
-
-        <!-- Header Section -->
-        <header class="text-center mb-12">
-            <h1 class="animated-title mb-3">JAY RATHOD</h1>
-            <p class="text-xl sub-header-text mb-4">Full Stack Developer | LLM & AI Automation Enthusiast</p>
-            <div class="flex justify-center space-x-6 text-lg">
-                <a href="mailto:jkrathod2601@gmail.com" class="link-style flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                        <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                    </svg>
-                    jkrathod2601@gmail.com
-                </a>
-                <a href="https://www.linkedin.com/in/jay-rathod-2601/" target="_blank" class="link-style flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 110-4 2 2 0 010 4z"/>
-                    </svg>
-                    LinkedIn
-                </a>
-                <a href="https://github.com/your-github" target="_blank" class="link-style flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" viewBox="0 0 24 24" fill="currentColor">
-                        <path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.419 2.865 8.165 6.839 9.48.5.09.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.455-1.159-1.11-1.465-1.11-1.465-.908-.618.069-.606.069-.606 1.007.07 1.532 1.03 1.532 1.03.892 1.529 2.341 1.088 2.906.832.09-.645.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.945 0-1.09.39-1.984 1.029-2.682-.103-.253-.446-1.27.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.747-1.025 2.747-1.025.546 1.38.202 2.398.099 2.65.64.698 1.028 1.592 1.028 2.682 0 3.843-2.339 4.687-4.566 4.935.359.308.678.915.678 1.846 0 1.334-.012 2.41-.012 2.73 0 .268.18.579.688.482C20.137 20.165 23 16.419 23 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" />
-                    </svg>
-                    GitHub
-                </a>
-            </div>
-        </header>
-
-        <!-- Profile Summary -->
-        <section class="section-box">
-            <h2 class="text-3xl font-bold sub-header-text mb-4">PROFILE SUMMARY</h2>
-            <p class="text-lg body-text leading-relaxed">
-                Full Stack Developer with expertise in LLM-based applications, SQL, and AI-driven automation. Passionate about solving
-                real-world problems with technology. Strong foundation in Full Stack Development and AI-driven solutions.
-            </p>
-        </section>
-
-        <!-- Skills Section -->
-        <section class="section-box">
-            <h2 class="text-3xl font-bold sub-header-text mb-4">SKILLS</h2>
-            <div class="mb-4">
-                <h3 class="text-xl font-semibold sub-header-text mb-2">Languages:</h3>
-                <div class="flex flex-wrap">
-                    <span class="tag">JavaScript</span>
-                    <span class="tag">Python</span>
-                    <span class="tag">Java</span>
-                    <span class="tag">SQL</span>
-                    <span class="tag">HTML</span>
-                    <span class="tag">CSS</span>
-                    <span class="tag">Data Structures & Algorithms</span>
+<body class="bg-slate-900 leading-relaxed text-slate-400 antialiased selection:bg-sky-300 selection:text-sky-900">
+    <div class="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
+        <div class="lg:flex lg:justify-between lg:gap-16">
+            
+            <!-- Left Sticky Sidebar -->
+            <header class="lg:sticky lg:top-0 lg:flex lg:max-h-screen lg:w-1/2 lg:flex-col lg:justify-between lg:py-24">
+                <div>
+                    <h1 class="text-4xl font-extrabold tracking-tight text-slate-200 sm:text-5xl">
+                        <a href="/">
+                            <span class="bg-gradient-to-r from-sky-400 to-cyan-300 bg-clip-text text-transparent">
+                                JAY RATHOD
+                            </span>
+                        </a>
+                    </h1>
+                    <h2 class="mt-3 text-lg font-medium tracking-tight text-slate-200 sm:text-xl">
+                        Full Stack Developer
+                    </h2>
+                    <p class="mt-4 max-w-xs leading-normal">
+                        LLM & AI Automation Enthusiast passionate about solving real-world problems with technology.
+                    </p>
+                    <nav class="nav hidden lg:block" aria-label="In-page jump links">
+                        <ul class="mt-16 w-max">
+                            <li><a class="group flex items-center py-3" href="#about"><span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span><span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">About</span></a></li>
+                            <li><a class="group flex items-center py-3" href="#skills"><span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span><span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">Skills</span></a></li>
+                            <li><a class="group flex items-center py-3" href="#experience"><span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span><span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">Experience</span></a></li>
+                            <li><a class="group flex items-center py-3" href="#education"><span class="nav-indicator mr-4 h-px w-8 bg-slate-600 transition-all group-hover:w-16 group-hover:bg-slate-200 group-focus-visible:w-16 group-focus-visible:bg-slate-200 motion-reduce:transition-none"></span><span class="nav-text text-xs font-bold uppercase tracking-widest text-slate-500 group-hover:text-slate-200 group-focus-visible:text-slate-200">Education</span></a></li>
+                        </ul>
+                    </nav>
                 </div>
-            </div>
-            <div class="mb-4">
-                <h3 class="text-xl font-semibold sub-header-text mb-2">Technologies/Frameworks:</h3>
-                <div class="flex flex-wrap">
-                    <span class="tag">React JS</span>
-                    <span class="tag">NodeJS</span>
-                    <span class="tag">Flutter</span>
-                    <span class="tag">Express JS</span>
-                    <span class="tag">Azure Open AI</span>
-                    <span class="tag">REST API</span>
-                    <span class="tag">GraphQL</span>
-                    <span class="tag">Power BI</span>
-                    <span class="tag">Power Automate</span>
-                    <span class="tag">Power Apps</span>
-                    <span class="tag">Phidata (Agentic Framework)</span>
-                    <span class="tag">Cloud Functions</span>
-                </div>
-            </div>
-            <div class="mb-4">
-                <h3 class="text-xl font-semibold sub-header-text mb-2">Databases:</h3>
-                <div class="flex flex-wrap">
-                    <span class="tag">Redis</span>
-                    <span class="tag">MySQL</span>
-                    <span class="tag">MongoDB</span>
-                    <span class="tag">Cosmos DB</span>
-                </div>
-            </div>
-            <div>
-                <h3 class="text-xl font-semibold sub-header-text mb-2">Soft Skills:</h3>
-                <div class="flex flex-wrap">
-                    <span class="tag">Problem-solving</span>
-                    <span class="tag">Communication</span>
-                    <span class="tag">Troubleshooting</span>
-                    <span class="tag">Analytical</span>
-                    <span class="tag">Ability To Manage</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section class="section-box">
-            <h2 class="text-3xl font-bold sub-header-text mb-4">EXPERIENCE</h2>
-
-            <div class="experience-item">
-                <h3 class="text-2xl font-semibold sub-header-text">Software Development Engineer</h3>
-                <p class="text-lg font-medium body-text">Adani Enterprises Ltd | Jul 2022 - Present</p>
-                <p class="text-md body-text mt-2">Ahmedabad, India</p>
-                <ul class="list-disc list-inside text-md body-text mt-3 space-y-2">
-                    <li>Developed an application leveraging Large Language Model (LLM) techniques to automate the review process for architects, streamlining and accelerating the evaluation of technical proposals. This solution reduced manual effort by over 50-60%, significantly enhancing efficiency and accuracy.</li>
-                    <li>Developed a widely adopted LLM-based Retrieval-Augmented Generation (RAG) application enhanced with agentic AI capabilities, enabling accurate, context-aware content extraction and automated decision support. Streamlined manual reading and approval workflows, reducing process time by 25-30% and significantly improving business efficiency and decision-making speed.</li>
-                    <li>Added generative AI features to the NFA portal used by over 30,000 users, improving automation. Also improved the system's performance and managed costs to keep the platform fast and efficient as it scaled.</li>
-                    <li>Designed interactive dashboards for management, delivering valuable insights and analytics to inform strategic initiatives. Utilized LLM techniques to extract key insights, significantly enhancing data-driven decision-making and supporting business objectives.</li>
-                    <li>Developed a comprehensive web portal for Group IT, widely adopted across the organization. Integrated advanced features such as Active Directory (AD) authentication and role-based access control, enhancing security and user management. This high-performance portal significantly improved operational efficiency and user experience.</li>
-                    <li>Created a complex problem-solving solution for the Group Business Excellence team, utilized by all group employees, featuring a sophisticated approval workflow and leveraging Microsoft Power Platform and Cloud Flows to drive business process automation and efficiency.</li>
-                    <li>Collaborated with the Architecture Team to design and review technical architecture for new services, ensuring alignment with business requirements.</li>
+                <ul class="ml-1 mt-8 flex items-center" aria-label="Social media">
+                    <li class="mr-5 text-xs shrink-0">
+                        <a href="mailto:jkrathod2601@gmail.com" class="block hover:text-slate-200" title="Email">
+                            <span class="sr-only">Email</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" class="h-6 w-6" aria-hidden="true"><path d="M3 4a2 2 0 00-2 2v1.161l8.441 4.221a1.25 1.25 0 001.118 0L19 7.162V6a2 2 0 00-2-2H3z"></path><path d="M19 8.839l-7.77 3.885a2.75 2.75 0 01-2.46 0L1 8.839V14a2 2 0 002 2h14a2 2 0 002-2V8.839z"></path></svg>
+                        </a>
+                    </li>
+                    <li class="mr-5 text-xs shrink-0">
+                        <a href="https://github.com/your-github" target="_blank" rel="noreferrer noopener" class="block hover:text-slate-200" title="GitHub">
+                            <span class="sr-only">GitHub</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="h-6 w-6" aria-hidden="true"><path fill-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.419 2.865 8.165 6.839 9.48.5.09.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.455-1.159-1.11-1.465-1.11-1.465-.908-.618.069-.606.069-.606 1.007.07 1.532 1.03 1.532 1.03.892 1.529 2.341 1.088 2.906.832.09-.645.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.945 0-1.09.39-1.984 1.029-2.682-.103-.253-.446-1.27.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.747-1.025 2.747-1.025.546 1.38.202 2.398.099 2.65.64.698 1.028 1.592 1.028 2.682 0 3.843-2.339 4.687-4.566 4.935.359.308.678.915.678 1.846 0 1.334-.012 2.41-.012 2.73 0 .268.18.579.688.482C20.137 20.165 23 16.419 23 12c0-5.523-4.477-10-10-10z" clip-rule="evenodd" /></svg>
+                        </a>
+                    </li>
+                    <li class="mr-5 text-xs shrink-0">
+                        <a href="https://www.linkedin.com/in/jay-rathod-2601/" target="_blank" rel="noreferrer noopener" class="block hover:text-slate-200" title="LinkedIn">
+                            <span class="sr-only">LinkedIn</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 6a2 2 0 110-4 2 2 0 010 4z"/></svg>
+                        </a>
+                    </li>
                 </ul>
-            </div>
+            </header>
 
-            <div class="experience-item">
-                <h3 class="text-2xl font-semibold sub-header-text">Intern</h3>
-                <p class="text-lg font-medium body-text">Cycbercom Creations | Jan 2022 - Jun 2022</p>
-                <p class="text-md body-text mt-2">Ahmedabad, India</p>
-                <ul class="list-disc list-inside text-md body-text mt-3 space-y-2">
-                    <li>Created a tool for Node JS developers to enhance development efficiency with features like automatic authentication and routing, automating repetitive tasks. This tool significantly improved developer productivity and reduced development time.</li>
-                </ul>
-            </div>
-        </section>
+            <!-- Right Scrollable Content -->
+            <main id="content" class="pt-24 lg:w-1/2 lg:py-24">
+                <section id="about" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="About me">
+                    <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                        <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">About</h2>
+                    </div>
+                    <div>
+                        <p class="mb-4">
+                            A Full Stack Developer with deep expertise in building LLM-based applications, SQL wizardry, and creating intelligent AI-driven automations. I thrive on architecting and implementing robust, scalable solutions from the ground up.
+                        </p>
+                        <p class="mb-4">My experience ranges from developing Retrieval-Augmented Generation (RAG) systems that reduce manual work by over 50%, to integrating generative AI features into portals used by over 30,000 users. I'm passionate about leveraging technology to create tangible business impact and enhance user experiences.
+                        </p>
+                    </div>
+                </section>
+                
+                <section id="skills" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Skills">
+                    <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                        <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Skills</h2>
+                    </div>
+                    <div>
+                        <div class="mb-6">
+                            <h3 class="text-lg font-semibold text-slate-300 mb-3">Languages & Databases</h3>
+                            <div class="flex flex-wrap" aria-label="Languages & Databases">
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">Python</div></div>
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">JavaScript</div></div>
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">Java</div></div>
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">SQL</div></div>
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">MySQL</div></div>
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">MongoDB</div></div>
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">Redis</div></div>
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">Cosmos DB</div></div>
+                            </div>
+                        </div>
+                         <div>
+                            <h3 class="text-lg font-semibold text-slate-300 mb-3">Technologies & Frameworks</h3>
+                            <div class="flex flex-wrap" aria-label="Technologies & Frameworks">
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">Azure Open AI</div></div>
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">Phidata</div></div>
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">React JS</div></div>
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">NodeJS</div></div>
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">Express JS</div></div>
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">Flutter</div></div>
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">Power Platform</div></div>
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">Power BI</div></div>
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">GraphQL</div></div>
+                                <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">REST API</div></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
 
-        <!-- Education Section -->
-        <section class="section-box">
-            <h2 class="text-3xl font-bold sub-header-text mb-4">EDUCATION</h2>
-            <div class="mb-4">
-                <h3 class="text-2xl font-semibold sub-header-text">BE in Computer Science</h3>
-                <p class="text-lg font-medium body-text">Government Engineering College, Bhavnagar</p>
-                <p class="text-md body-text mt-2">July 2018 - May 2022 | Bhavnagar, Gujarat</p>
-                <p class="text-md body-text mt-1">CGPA: 8.51/10</p>
-            </div>
-        </section>
+                <section id="experience" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Work experience">
+                    <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                        <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Experience</h2>
+                    </div>
+                    <div>
+                        <ol class="relative border-l border-slate-700 ml-2">
+                            <li class="mb-10 ml-6 timeline-item">
+                                <span class="absolute flex items-center justify-center w-3 h-3 bg-sky-400 rounded-full -left-1.5 top-1.5"></span>
+                                <h3 class="text-lg font-semibold text-slate-200">Software Development Engineer · Adani Enterprises Ltd</h3>
+                                <p class="block mb-2 text-sm font-normal leading-none text-slate-500">Jul 2022 - Present</p>
+                                <ul class="list-disc list-inside space-y-2 mt-2">
+                                    <li>Developed LLM-based RAG application with agentic AI, reducing manual review time by 25-30%.</li>
+                                    <li>Integrated generative AI features into an NFA portal serving 30,000+ users, enhancing automation and performance.</li>
+                                    <li>Architected and developed a high-performance web portal for Group IT with AD authentication and role-based access.</li>
+                                    <li>Created complex problem-solving solutions on Microsoft Power Platform, driving business process automation.</li>
+                                </ul>
+                                <div class="mt-4 flex flex-wrap" aria-label="Technologies used">
+                                    <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">Azure Open AI</div></div>
+                                    <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">Phidata</div></div>
+                                    <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">React JS</div></div>
+                                    <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">Node JS</div></div>
+                                    <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">Power Platform</div></div>
+                                    <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">Cosmos DB</div></div>
+                                </div>
+                            </li>
+                            <li class="ml-6 timeline-item">
+                                <span class="absolute flex items-center justify-center w-3 h-3 bg-sky-400 rounded-full -left-1.5 top-1.5"></span>
+                                <h3 class="text-lg font-semibold text-slate-200">Intern · Cybercom Creations</h3>
+                                <p class="block mb-2 text-sm font-normal leading-none text-slate-500">Jan 2022 - Jun 2022</p>
+                                <ul class="list-disc list-inside space-y-2 mt-2">
+                                   <li>Created a developer tool for NodeJS with automatic authentication and routing to boost productivity and reduce repetitive tasks.</li>
+                                </ul>
+                                <div class="mt-4 flex flex-wrap" aria-label="Technologies used">
+                                    <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">Node JS</div></div>
+                                    <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">Express JS</div></div>
+                                    <div class="mr-2 mt-2"><div class="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">JavaScript</div></div>
+                                </div>
+                            </li>
+                        </ol>
+                    </div>
+                </section>
+                
+                <section id="education" class="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Education">
+                    <div class="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
+                        <h2 class="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Education</h2>
+                    </div>
+                    <div>
+                        <div class="rounded-md border border-slate-800 p-6 transition-all hover:bg-slate-800/50">
+                            <h3 class="text-lg font-semibold text-slate-200">BE in Computer Science</h3>
+                            <p class="text-slate-400">Government Engineering College, Bhavnagar</p>
+                            <p class="text-sm text-slate-500 mt-1">July 2018 - May 2022</p>
+                            <p class="text-sm text-slate-500 mt-1">CGPA: 8.51/10</p>
+                        </div>
+                    </div>
+                </section>
 
-        <!-- Achievements Section -->
-        <section class="section-box">
-            <h2 class="text-3xl font-bold sub-header-text mb-4">ACHIEVEMENTS</h2>
-            <ul class="list-disc list-inside text-md body-text space-y-2">
-                <li>Golden Badge in Problem Solving and Java.</li>
-                <li>Gold Medalist at the National Science Congress.</li>
-            </ul>
-        </section>
-
+                <footer class="max-w-md pb-16 text-sm text-slate-500 sm:pb-0">
+                    <p>
+                        Coded in <a href="https://code.visualstudio.com/" class="font-medium text-slate-400 hover:text-sky-300 focus-visible:text-sky-300" target="_blank" rel="noreferrer noopener">Visual Studio Code</a> 
+                        and styled with <a href="https://tailwindcss.com/" class="font-medium text-slate-400 hover:text-sky-300 focus-visible:text-sky-300" target="_blank" rel="noreferrer noopener">Tailwind CSS</a>.
+                        Built with inspiration from modern web design trends.
+                    </p>
+                </footer>
+            </main>
+        </div>
     </div>
 </body>
 </html>
