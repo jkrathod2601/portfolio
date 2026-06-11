@@ -1,33 +1,31 @@
-import Sidebar from './components/Sidebar';
+import Nav from './components/Nav';
+import Hero from './components/Hero';
+import Marquee from './components/Marquee';
 import About from './components/About';
 import Skills from './components/Skills';
 import Experience from './components/Experience';
 import Education from './components/Education';
 import Projects from './components/Projects';
+import Footer from './components/Footer';
+import Reveal from './components/Reveal';
+import ScrollProgress from './components/ScrollProgress';
 
 function App() {
   return (
-    <>
-      <div className="fixed top-0 left-0 -z-10 h-full w-full">
-        <ul className="circles">
-          {Array.from({ length: 10 }).map((_, i) => (
-            <li key={i}></li>
-          ))}
-        </ul>
-      </div>
-      <div className="mx-auto min-h-screen max-w-screen-xl px-6 py-12 font-sans md:px-12 md:py-20 lg:px-24 lg:py-0">
-        <div className="lg:flex lg:justify-between lg:gap-16">
-          <Sidebar />
-          <main id="content" className="pt-24 lg:w-1/2 lg:py-24">
-            <About />
-            <Skills />
-            <Experience />
-            <Education />
-            <Projects />
-          </main>
-        </div>
-      </div>
-    </>
+    <div className="min-h-screen bg-canvas">
+      <ScrollProgress />
+      <Nav />
+      <Marquee />
+      <main>
+        <Hero />
+        <Reveal><About /></Reveal>
+        <Reveal delay={150}><Skills /></Reveal>
+        <Reveal delay={100}><Experience /></Reveal>
+        <Reveal delay={150}><Education /></Reveal>
+        <Reveal delay={100}><Projects /></Reveal>
+      </main>
+      <Footer />
+    </div>
   );
 }
 

@@ -1,22 +1,31 @@
 const experiences = [
   {
     id: 1,
-    title: 'Software Development Engineer · Adani Enterprises Ltd',
-    period: 'Jul 2022 - Present',
+    title: 'Senior Full-Stack Developer · Adani Enterprises Ltd',
+    location: 'Ahmedabad',
+    period: 'July 2022 – Present',
     points: [
-      'Developed LLM-based RAG application with agentic AI, reducing manual review time by 25-30%.',
-      'Integrated generative AI features into an NFA portal serving 30,000+ users, enhancing automation and performance.',
-      'Architected and developed a high-performance web portal for Group IT with AD authentication and role-based access.',
-      'Created complex problem-solving solutions on Microsoft Power Platform, driving business process automation.',
+      'Architected and developed a centralized intranet application supporting 30,000+ employees daily across multiple business units',
+      'Led end-to-end solution design encompassing scalable backend services, frontend systems, Azure cloud infrastructure, disaster recovery (DR), and database replication strategies',
+      'Boosted API performance using Redis caching, indexing strategies, and query optimization to maintain response times below 150–200ms',
+      'Integrated RBAC, real-time notifications, and organization-wide collaboration features to streamline internal communication workflows',
+      'Connected 20+ enterprise and third-party services, including MakeMyTrip, via OAuth 2.0, secure REST APIs, and middleware integrations',
+      'Established CI/CD pipelines, deployment automation, and infrastructure management using Azure DevOps',
+      'Built and deployed a multi-agent AI system using LangChain and Phidata to automate multimodal business workflows, reducing task resolution time by 40–50%',
+      'Engineered MCP-based AI orchestration services with RBAC, Redis caching, and optimized prompt execution, cutting AI operational costs by 35–40%',
+      'Streamlined internal workflows using Power Apps, Power Automate, and Microsoft Copilot with complex approval automation, reducing delivery timelines by 3–4 months',
+      'Part of the architecture team responsible for designing scalable and highly available cloud infrastructure, deployment strategies, and system architecture for applications',
+      'Currently leading and managing multiple concurrent projects while mentoring a team of 4 developers across frontend, backend, cloud, and AI initiatives',
     ],
-    tech: ['Azure Open AI', 'Phidata', 'React JS', 'Node JS', 'Power Platform', 'Cosmos DB'],
+    tech: ['Azure', 'LangChain', 'Phidata', 'React JS', 'Node JS', 'Redis', 'Azure DevOps', 'Power Platform', 'MCP'],
   },
   {
     id: 2,
-    title: 'Intern · Cybercom Creations',
-    period: 'Jan 2022 - Jun 2022',
+    title: 'Software Development Intern · Cybercom Creations',
+    location: 'Ahmedabad',
+    period: 'Jan 2022 – May 2022',
     points: [
-      'Created a developer tool for NodeJS with automatic authentication and routing to boost productivity and reduce repetitive tasks.',
+      'Built a Node.js productivity utility that automated authentication scaffolding, migrations, and routing workflows, enabling faster project setup',
     ],
     tech: ['Node JS', 'Express JS', 'JavaScript'],
   },
@@ -24,34 +33,32 @@ const experiences = [
 
 function Experience() {
   return (
-    <section id="experience" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Work experience">
-      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-        <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Experience</h2>
-      </div>
-      <div>
-        <ol className="relative border-l border-slate-700 ml-2">
+    <section id="experience" className="py-section px-6 lg:px-12">
+      <div className="mx-auto max-w-7xl">
+        <p className="font-mono text-eyebrow uppercase text-ink/40 mb-4">
+          Experience
+        </p>
+        <div className="border-l-2 border-hairline ml-3 pl-8 space-y-12">
           {experiences.map((exp) => (
-            <li key={exp.id} className="mb-10 ml-6 timeline-item">
-              <span className="absolute flex items-center justify-center w-3 h-3 bg-sky-400 rounded-full -left-1.5 top-1.5" />
-              <h3 className="text-lg font-semibold text-slate-200">{exp.title}</h3>
-              <p className="block mb-2 text-sm font-normal leading-none text-slate-500">{exp.period}</p>
-              <ul className="list-disc list-inside space-y-2 mt-2">
+            <div key={exp.id} className="relative">
+              <span className="absolute -left-[39px] top-1.5 w-3 h-3 bg-ink rounded-full ring-4 ring-canvas" />
+              <h3 className="text-headline">{exp.title}</h3>
+              <p className="text-body-sm text-ink/40 mt-1">{exp.period} · {exp.location}</p>
+              <ul className="mt-4 space-y-2 text-body text-ink/70">
                 {exp.points.map((point, i) => (
-                  <li key={i}>{point}</li>
+                  <li key={i} className="list-disc list-inside">{point}</li>
                 ))}
               </ul>
-              <div className="mt-4 flex flex-wrap" aria-label="Technologies used">
+              <div className="flex flex-wrap gap-2 mt-4">
                 {exp.tech.map((t) => (
-                  <div key={t} className="mr-2 mt-2">
-                    <div className="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">
-                      {t}
-                    </div>
-                  </div>
+                  <span key={t} className="rounded-pill bg-white/70 text-ink/70 px-3 py-1 text-body-sm">
+                    {t}
+                  </span>
                 ))}
               </div>
-            </li>
+            </div>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );

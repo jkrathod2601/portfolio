@@ -1,15 +1,44 @@
+import { useState } from 'react';
+
 function Education() {
+  const [showMore, setShowMore] = useState(false);
+
   return (
-    <section id="education" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Education">
-      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-        <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Education</h2>
-      </div>
-      <div>
-        <div className="rounded-md border border-slate-800 p-6 transition-all hover:bg-slate-800/50">
-          <h3 className="text-lg font-semibold text-slate-200">BE in Computer Science</h3>
-          <p className="text-slate-400">Government Engineering College, Bhavnagar</p>
-          <p className="text-sm text-slate-500 mt-1">July 2018 - May 2022</p>
-          <p className="text-sm text-slate-500 mt-1">CGPA: 8.51/10</p>
+    <section id="education" className="py-section px-6 lg:px-12">
+      <div className="mx-auto max-w-7xl">
+        <p className="font-mono text-eyebrow uppercase text-ink/40 mb-4">
+          Education
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div>
+            <h3 className="text-headline">BE in Computer Science</h3>
+            <p className="text-body text-ink/60 mt-1">Government Engineering College, Bhavnagar</p>
+            <div className="flex items-center gap-4 mt-3 flex-wrap">
+              <span className="text-body-sm text-ink/40">July 2018 - May 2022</span>
+              <span className="rounded-pill bg-surface-soft px-3 py-0.5 text-body-sm text-ink">CGPA: 8.51/10</span>
+            </div>
+            {showMore && (
+              <div className="mt-4 text-body-sm text-ink/50 space-y-2 animate-reveal-up">
+                <p>Relevant coursework: Data Structures, Algorithms, Database Management, Computer Networks, Software Engineering, Machine Learning</p>
+              </div>
+            )}
+            <button
+              onClick={() => setShowMore(!showMore)}
+              className="mt-3 text-body-sm text-ink/40 hover:text-ink transition-colors font-mono uppercase tracking-wider"
+            >
+              {showMore ? '— Less' : '+ More'}
+            </button>
+          </div>
+          <div className="space-y-4">
+            <div className="rounded-[16px] bg-surface-soft p-5">
+              <p className="font-mono text-caption uppercase text-ink/30 mb-1">Key Focus</p>
+              <p className="text-body-sm text-ink/60">Full-stack development, AI/LLM systems, cloud architecture, system design</p>
+            </div>
+            <div className="rounded-[16px] bg-surface-soft p-5">
+              <p className="font-mono text-caption uppercase text-ink/30 mb-1">Certifications</p>
+              <p className="text-body-sm text-ink/60">Azure AI Fundamentals · Microsoft Power Platform · Data Structures (NPTEL)</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>

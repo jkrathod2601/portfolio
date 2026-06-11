@@ -19,25 +19,30 @@ const skillGroups = [
 
 function Skills() {
   return (
-    <section id="skills" className="mb-16 scroll-mt-16 md:mb-24 lg:mb-36 lg:scroll-mt-24" aria-label="Skills">
-      <div className="sticky top-0 z-20 -mx-6 mb-4 w-screen bg-slate-900/75 px-6 py-5 backdrop-blur md:-mx-12 md:px-12 lg:sr-only lg:relative lg:top-auto lg:mx-auto lg:w-full lg:px-0 lg:py-0 lg:opacity-0">
-        <h2 className="text-sm font-bold uppercase tracking-widest text-slate-200 lg:sr-only">Skills</h2>
-      </div>
-      <div>
-        {skillGroups.map((group) => (
-          <div key={group.title} className="mb-8">
-            <h3 className="text-lg font-semibold text-slate-300 mb-3">{group.title}</h3>
-            <div className="flex flex-wrap" aria-label={group.title}>
-              {group.items.map((item) => (
-                <div key={item} className="mr-2 mt-2">
-                  <div className="flex items-center rounded-full bg-sky-400/10 px-3 py-1 text-xs font-medium leading-5 text-sky-300">
+    <section id="skills" className="py-section px-6 lg:px-12">
+      <div className="mx-auto max-w-7xl">
+        <p className="font-mono text-eyebrow uppercase text-ink/40 mb-8">
+          Skills &amp; Expertise
+        </p>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {skillGroups.map((group) => (
+            <div key={group.title} className="rounded-[16px] bg-surface-soft p-6">
+              <h3 className="font-mono text-caption uppercase tracking-wider text-ink/40 mb-4">
+                {group.title}
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {group.items.map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-pill bg-white text-ink px-3.5 py-1.5 text-body-sm border border-hairline cursor-default"
+                  >
                     {item}
-                  </div>
-                </div>
-              ))}
+                  </span>
+                ))}
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   );
