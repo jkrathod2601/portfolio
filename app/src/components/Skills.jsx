@@ -34,7 +34,7 @@ function Skills() {
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-pill bg-white text-ink px-3.5 py-1.5 text-body-sm border border-hairline cursor-default"
+                    className="rounded-pill bg-white dark:bg-surface-soft text-ink px-3.5 py-1.5 text-body-sm border border-hairline cursor-default"
                   >
                     {item}
                   </span>

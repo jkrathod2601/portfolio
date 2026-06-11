@@ -51,7 +51,7 @@ function Experience() {
               </ul>
               <div className="flex flex-wrap gap-2 mt-4">
                 {exp.tech.map((t) => (
-                  <span key={t} className="rounded-pill bg-white/70 text-ink/70 px-3 py-1 text-body-sm">
+                  <span key={t} className="rounded-pill bg-white/70 dark:bg-surface-soft text-ink/70 px-3 py-1 text-body-sm">
                     {t}
                   </span>
                 ))}

@@ -1,5 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: 'class',
   content: [
     "./index.html",
     "./src/**/*.{js,ts,jsx,tsx}",
@@ -25,13 +26,13 @@ export default {
         'caption': ['12px', { lineHeight: '1', letterSpacing: '0.6px', fontWeight: 400 }],
       },
       colors: {
-        ink: '#000000',
-        'inverse-ink': '#ffffff',
-        canvas: '#ffffff',
-        'inverse-canvas': '#000000',
-        'surface-soft': '#f5f5f5',
-        hairline: '#e5e5e5',
-        'hairline-soft': '#f0f0f0',
+        ink: 'rgb(var(--color-ink) / <alpha-value>)',
+        'inverse-ink': 'rgb(var(--color-inverse-ink) / <alpha-value>)',
+        canvas: 'rgb(var(--color-canvas) / <alpha-value>)',
+        'inverse-canvas': 'rgb(var(--color-inverse-canvas) / <alpha-value>)',
+        'surface-soft': 'rgb(var(--color-surface-soft) / <alpha-value>)',
+        hairline: 'rgb(var(--color-hairline) / <alpha-value>)',
+        'hairline-soft': 'rgb(var(--color-hairline-soft) / <alpha-value>)',
         'block-lime': '#eaf6e8',
         'block-lilac': '#f0edff',
         'block-cream': '#fdf6e3',
@@ -39,8 +40,6 @@ export default {
         'block-pink': '#fce4ec',
         'block-coral': '#ffe4d6',
         'block-navy': '#1a2233',
-        'accent-magenta': '#ff3366',
-        'semantic-success': '#00a86b',
         'on-inverse-soft': 'rgba(255,255,255,0.16)',
       },
       borderRadius: {

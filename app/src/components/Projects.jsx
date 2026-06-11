@@ -75,7 +75,7 @@ function FileExplorerModal({ repo, onClose }) {
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
-      <div className="relative w-full max-w-2xl rounded-[24px] bg-white shadow-xl p-6">
+      <div className="relative w-full max-w-2xl rounded-[24px] bg-white dark:bg-[#222] shadow-xl p-6">
         <div className="flex justify-between items-center pb-3 border-b border-hairline">
           <h3 className="text-headline">{repo}</h3>
           <button onClick={onClose} className="w-10 h-10 rounded-full bg-surface-soft flex items-center justify-center hover:bg-hairline transition-colors">
@@ -171,7 +171,7 @@ function Projects() {
                     e.preventDefault();
                     setSelectedRepo(repo.name);
                   }}
-                  className="group flex items-center justify-between bg-white rounded-pill px-6 py-4 border border-hairline hover:shadow-sm transition-all"
+                  className="group flex items-center justify-between bg-white dark:bg-surface-soft rounded-pill px-6 py-4 border border-hairline hover:shadow-sm transition-all"
                 >
                   <div className="flex items-center gap-4 min-w-0">
                     <div className="w-10 h-10 rounded-full bg-surface-soft flex items-center justify-center shrink-0">
