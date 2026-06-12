@@ -5,10 +5,10 @@ function About() {
         <p className="font-mono text-eyebrow uppercase text-ink/40 mb-4">
           About
         </p>
-        <h2 className="text-headline max-w-2xl">
+        <h2 className="text-headline">
           Full Stack Developer with deep expertise in building LLM-based applications
         </h2>
-        <div className="mt-6 max-w-3xl space-y-4 text-body text-ink/70">
+        <div className="mt-6 space-y-4 text-body text-ink/70 max-w-6xl">
           <p>
             I specialize in SQL wizardry and creating intelligent AI-driven automations. 
             I thrive on architecting and implementing robust, scalable solutions from the ground up.

@@ -1,3 +1,34 @@
+const iconMap = {
+  JavaScript: 'javascript',
+  Python: 'python',
+  Java: 'openjdk',
+  SQL: 'mysql',
+  HTML: 'html5',
+  CSS: 'css3',
+  'Data Structures & Algorithms': '',
+  'React JS': 'react',
+  NodeJS: 'nodedotjs',
+  Flutter: 'flutter',
+  'Express JS': 'express',
+  'Azure Open AI': 'azureopenai',
+  'REST API': 'api',
+  GraphQL: 'graphql',
+  'Power BI': 'powerbi',
+  'Power Automate': 'powerautomate',
+  'Power Apps': 'powerapps',
+  'Phidata (Agentic Framework)': '',
+  'Cloud Functions': '',
+  Redis: 'redis',
+  MySQL: 'mysql',
+  MongoDB: 'mongodb',
+  'Cosmos DB': 'cosmosdb',
+  'Problem-solving': '',
+  Communication: '',
+  Troubleshooting: '',
+  Analytical: '',
+  'Ability To Manage': '',
+};
+
 const skillGroups = [
   {
     title: 'Languages',
@@ -24,18 +55,27 @@ function Skills() {
         <p className="font-mono text-eyebrow uppercase text-ink/40 mb-8">
           Skills &amp; Expertise
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="space-y-6">
           {skillGroups.map((group) => (
-            <div key={group.title} className="rounded-[16px] bg-surface-soft p-6">
-              <h3 className="font-mono text-caption uppercase tracking-wider text-ink/40 mb-4">
+            <div key={group.title} className="flex flex-col sm:flex-row sm:items-baseline gap-3">
+              <h3 className="font-mono text-caption uppercase tracking-wider text-ink/40 shrink-0 w-52">
                 {group.title}
               </h3>
               <div className="flex flex-wrap gap-2">
                 {group.items.map((item) => (
                   <span
                     key={item}
-                    className="rounded-pill bg-white dark:bg-surface-soft text-ink px-3.5 py-1.5 text-body-sm border border-hairline cursor-default"
+                    className="inline-flex items-center gap-1.5 rounded-pill bg-white dark:bg-surface-soft text-ink px-3.5 py-1.5 text-body-sm border border-hairline cursor-default"
                   >
+                    {iconMap[item] && (
+                      <img
+                        src={`https://cdn.simpleicons.org/${iconMap[item]}`}
+                        alt=""
+                        className="h-4 w-4 shrink-0"
+                        loading="lazy"
+                        onError={(e) => e.target.style.display = 'none'}
+                      />
+                    )}
                     {item}
                   </span>
                 ))}

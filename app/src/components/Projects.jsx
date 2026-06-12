@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 
 const GITHUB_USERNAME = 'jkrathod2601';
 
@@ -73,7 +74,7 @@ function FileExplorerModal({ repo, onClose }) {
 
   if (!repo) return null;
 
-  return (
+  return createPortal(
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 p-4">
       <div className="relative w-full max-w-2xl rounded-[24px] bg-white dark:bg-[#222] shadow-xl p-6">
         <div className="flex justify-between items-center pb-3 border-b border-hairline">
@@ -126,7 +127,8 @@ function FileExplorerModal({ repo, onClose }) {
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }
 
@@ -136,7 +138,7 @@ function Projects() {
   const [selectedRepo, setSelectedRepo] = useState(null);
 
   useEffect(() => {
-    fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=6`)
+    fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=updated&per_page=9`)
       .then((res) => res.json())
       .then((data) => {
         if (Array.isArray(data)) setRepos(data);
@@ -145,6 +147,15 @@ function Projects() {
       .catch(() => setRepos([]))
       .finally(() => setLoadingRepos(false));
   }, []);
+
+  useEffect(() => {
+    if (selectedRepo) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [selectedRepo]);
 
   return (
     <>
@@ -162,47 +173,24 @@ function Projects() {
               No public repositories found.
             </div>
           ) : (
-            <div className="space-y-3">
+            <div className="flex flex-wrap gap-3">
               {repos.map((repo) => (
-                <a
+                <div
                   key={repo.id}
-                  href="#"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setSelectedRepo(repo.name);
-                  }}
-                  className="group flex items-center justify-between bg-white dark:bg-surface-soft rounded-pill px-6 py-4 border border-hairline hover:shadow-sm transition-all"
+                  onClick={() => setSelectedRepo(repo.name)}
+                  className="group inline-flex items-center gap-2 rounded-pill bg-white dark:bg-surface-soft px-4 py-2 border border-hairline hover:shadow-sm transition-all cursor-pointer"
                 >
-                  <div className="flex items-center gap-4 min-w-0">
-                    <div className="w-10 h-10 rounded-full bg-surface-soft flex items-center justify-center shrink-0">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-ink" viewBox="0 0 24 24" fill="currentColor">
-                        <path fillRule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.419 2.865 8.165 6.839 9.48.5.09.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.604-3.369-1.34-3.369-1.34-.455-1.159-1.11-1.465-1.11-1.465-.908-.618.069-.606.069-.606 1.007.07 1.532 1.03 1.532 1.03.892 1.529 2.341 1.088 2.906.832.09-.645.35-1.088.636-1.338-2.22-.253-4.555-1.11-4.555-4.945 0-1.09.39-1.984 1.029-2.682-.103-.253-.446-1.27.098-2.65 0 0 .84-.27 2.75 1.025A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.747-1.025 2.747-1.025.546 1.38.202 2.398.099 2.65.64.698 1.028 1.592 1.028 2.682 0 3.843-2.339 4.687-4.566 4.935.359.308.678.915.678 1.846 0 1.334-.012 2.41-.012 2.73 0 .268.18.579.688.482C20.137 20.165 23 16.419 23 12c0-5.523-4.477-10-10-10z" clipRule="evenodd" />
-                      </svg>
-                    </div>
-                    <div className="min-w-0">
-                      <h3 className="text-link group-hover:opacity-70 transition-opacity truncate">
-                        {repo.name}
-                      </h3>
-                      <p className="text-body-sm text-ink/50 truncate">
-                        {repo.description || 'No description provided.'}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-4 shrink-0 ml-4">
-                    <span className="rounded-pill bg-surface-soft text-body-sm text-ink/60 px-3 py-1 hidden sm:block">
-                      {repo.language || 'N/A'}
-                    </span>
-                    <span className="flex items-center gap-1 text-body-sm text-ink/40">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                      </svg>
-                      {repo.stargazers_count}
-                    </span>
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 text-ink/20 group-hover:text-ink/40 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </a>
+                  <img
+                    src="https://cdn.simpleicons.org/github"
+                    alt=""
+                    className="h-4 w-4 shrink-0"
+                    loading="lazy"
+                    onError={(e) => e.target.style.display = 'none'}
+                  />
+                  <span className="text-body-sm font-medium truncate max-w-[140px] group-hover:opacity-70 transition-opacity">
+                    {repo.name}
+                  </span>
+                </div>
               ))}
             </div>
           )}
