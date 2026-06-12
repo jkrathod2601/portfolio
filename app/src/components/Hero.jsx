@@ -1,13 +1,18 @@
+import LiquidEther from './LiquidEther.tsx'
+
 function Hero() {
   return (
     <section className="relative py-section px-6 lg:px-12 overflow-hidden min-h-[80vh] flex items-center">
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-20 -left-20 w-[500px] h-[500px] rounded-full bg-block-lime/40 dark:bg-white/5 blur-[100px] animate-float-slow" />
-        <div className="absolute top-1/4 -right-32 w-[600px] h-[600px] rounded-full bg-block-lilac/35 dark:bg-white/5 blur-[100px] animate-float" />
-        <div className="absolute bottom-10 left-1/3 w-[400px] h-[400px] rounded-full bg-block-cream/40 dark:bg-white/5 blur-[100px] animate-blob" />
-        <div className="absolute top-1/2 left-3/4 w-[350px] h-[350px] rounded-full bg-block-mint/30 dark:bg-white/5 blur-[100px] animate-float-slow" style={{ animationDelay: '-5s' }} />
-        <div className="absolute bottom-40 right-1/4 w-[300px] h-[300px] rounded-full bg-block-pink/30 dark:bg-white/5 blur-[100px] animate-float" style={{ animationDelay: '-8s' }} />
-        <div className="absolute top-1/3 left-1/6 w-[280px] h-[280px] rounded-full bg-block-coral/30 dark:bg-white/5 blur-[100px] animate-blob" style={{ animationDelay: '-3s' }} />
+        <LiquidEther
+          colors={['#A7F3D0', '#C4B5FD', '#FDE68A', '#FCA5A5', '#E0E7FF']}
+          mouseForce={25}
+          cursorSize={80}
+          resolution={0.4}
+          autoDemo={true}
+          autoSpeed={0.6}
+          autoIntensity={2.5}
+        />
       </div>
       <div className="relative mx-auto max-w-7xl">
         <p className="font-mono text-eyebrow uppercase text-ink/40 mb-6 animate-reveal-up" style={{ animationDelay: '0.1s', opacity: 0 }}>
